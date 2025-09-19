@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// Corrected the casing of the component imports to match the likely filenames
 import Navbar from './components/Navbar';
-// import About from './components/about';
+import About from './components/about';
 import Textform from './components/textform';
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter as Router, // Make sure Router is used
-//   Routes,
-//   Route,
-//   Link,
-// } from "react-router-dom";
-
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -25,11 +20,9 @@ function App() {
     }, 2000);
   };
 
-  // A slightly cleaner way to handle theme changes
   const changeMode = (newMode) => {
     setMode(newMode);
     
-    // Define theme properties in an object for easier management
     const themes = {
       dark: { backgroundColor: '#2b3866', color: 'white' },
       grey: { backgroundColor: '#ced4da', color: 'black' },
@@ -49,26 +42,23 @@ function App() {
 
   return (
     <>
-      {/* <Router> */}
+      <Router >
         <Navbar
-          title="textutils"
+          title="TextUtils"
           name="Ritika"
           mode={mode}
           changeMode={changeMode}
         />
         
-        {alert && <Alert alert={alert} />}
+        <Alert alert={alert} />
 
         <div className="container my-3">
-          {/*
           <Routes>
             <Route path="/about" element={<About mode={mode} />} />
-            <Route path="/" element={<Textform heading="Enter the text to analyse" mode={mode} showAlert={showAlert} />} />
+            <Route path="/" element={<Textform heading="Enter text to analyze below" mode={mode} showAlert={showAlert} />} />
           </Routes>
-          */}
-          <Textform heading="Enter the text to analyse" mode={mode} showAlert={showAlert}/>
         </div>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }

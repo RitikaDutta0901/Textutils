@@ -3,17 +3,12 @@ import React from 'react';
 // 1. Accept 'props' as an argument to receive the mode from App.js
 export default function About(props) {
 
-  // 2. Define styles based on the received 'mode' prop
-  // This object will dynamically change when the theme switches
   const myStyle = {
     color: props.mode === 'dark' ? 'white' : 'black',
     backgroundColor: props.mode === 'dark' ? '#2b3866' : 'white',
     border: '1px solid',
     borderColor: props.mode === 'dark' ? 'white' : '#dee2e6'
   };
-
-  // The local useState for style and the toggle button have been removed.
-  // App.js now controls the theme for the entire application.
 
   return (
     <div className="container" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
@@ -63,7 +58,7 @@ export default function About(props) {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the second item’s accordion body.</strong> It is hidden by default...
+              <strong>This is the second items accordion body.</strong> It is hidden by default...
             </div>
           </div>
         </div>
