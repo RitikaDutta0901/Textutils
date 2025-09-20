@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-//+++++++++++++ Component Definitions +++++++++++++
-// All components are now defined in this single file to resolve import errors.
-
-// Navbar Component
+import React from 'react';
+import { Link } from "react-router-dom";
 function Navbar(props) {
   const handleModeClick = (clickedMode) => {
     const newMode = props.mode === clickedMode ? 'light' : clickedMode;
@@ -50,36 +45,33 @@ function Navbar(props) {
             <div className={`form-check form-switch ${switchLabelColor}`}>
               <input
                 className="form-check-input"
-                onClick={() => handleModeClick('dark')}
+                onChange={() => handleModeClick('dark')}
                 checked={props.mode === 'dark'}
                 type="checkbox"
                 role="switch"
                 id="darkSwitch"
-                readOnly
               />
               <label className="form-check-label" htmlFor="darkSwitch">Dark</label>
             </div>
             <div className={`form-check form-switch ${switchLabelColor} mx-2`}>
               <input
                 className="form-check-input"
-                onClick={() => handleModeClick('grey')}
+                onChange={() => handleModeClick('grey')}
                 checked={props.mode === 'grey'}
                 type="checkbox"
                 role="switch"
                 id="greySwitch"
-                readOnly
               />
               <label className="form-check-label" htmlFor="greySwitch">Grey</label>
             </div>
             <div className={`form-check form-switch ${switchLabelColor}`}>
               <input
                 className="form-check-input"
-                onClick={() => handleModeClick('yellow')}
+                onChange={() => handleModeClick('yellow')}
                 checked={props.mode === 'yellow'}
                 type="checkbox"
                 role="switch"
                 id="yellowSwitch"
-                readOnly
               />
               <label className="form-check-label" htmlFor="yellowSwitch">Yellow</label>
             </div>
@@ -89,4 +81,5 @@ function Navbar(props) {
     </nav>
   );
 }
+
 export default Navbar;
